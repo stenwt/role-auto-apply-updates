@@ -1,2 +1,3 @@
-# ansible-pull-managed
-managing a few misc. machines via ansible-pull
+Ansible role to apply updates automatically
+
+Meant to support Fedora, Centos, Debian
