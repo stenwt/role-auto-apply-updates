@@ -1,21 +1,18 @@
 ---
 
-- tasks: 
-  
-    name: Install yum-cron
+  - name: Install yum-cron
     yum: >
-      name=yum-cron 
+      name=yum-cron
       state=installed
 
-    name: Configure yum-cron to apply updates
+  - name: Configure yum-cron to apply updates
     lineinfile: >
-      dest=/etc/yum/yum-cron.conf 
-      regexp='^apply_updates' 
-      line='apply_updates = yes' 
+      dest=/etc/yum/yum-cron.conf
+      regexp='^apply_updates'
+      line='apply_updates = yes'
 
-    name: Enable yum-cron
+  - name: Enable yum-cron
     service: >
-      name=yum-cron 
-      state=started 
+      name=yum-cron
+      state=started
       enabled=true
-
