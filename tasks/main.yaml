@@ -4,6 +4,3 @@
     
   - include: yum-cron-fedora.yaml
     when: ansible_distribution == 'Fedora'
-
-  - include: debian-unattended-upgrades.yaml
-    when: ansible_distribution == 'Debian
