@@ -4,6 +4,7 @@
     yum:
       name: yum-cron
       state: installed
+      update_cache: yes
 
   - name: Configure yum-cron to apply updates
     lineinfile:

@@ -1,0 +1,9 @@
+--- 
+  - include: yum-cron-centos-7.yaml 
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' and  "ansible_distribution_version" >= '7'
+    
+  - include: yum-cron-fedora.yaml
+    when: ansible_distribution == 'Fedora' and ansible_distribution_major_version < "22"
+    
+  - include: dnf-automatic-fedora.yaml
+    when: ansible_distribution == 'Fedora' and ansible_distribution_major_version >= "22"
