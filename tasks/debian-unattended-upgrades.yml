@@ -8,14 +8,10 @@
   - name: Configure auto-upgrade
     lineinfile: 
       dest: /etc/apt/apt.conf.d/20auto-upgrades
-      line: 'Unattended-Upgrade::MinimalSteps "true";'
-
-  - name: Configure auto-upgrade
-    lineinfile: 
-      dest: /etc/apt/apt.conf.d/20auto-upgrades
-      line: 'APT::Periodic::Update-Package-Lists "1";'
-
-  - name: Configure auto-upgrade
-    lineinfile: 
-      dest: /etc/apt/apt.conf.d/20auto-upgrades
-      line: 'APT::Periodic::Unattended-Upgrade "1";'
+      line: "{{ item }}"
+      create: yes
+    with_items: 
+      - 'Unattended-Upgrade::MinimalSteps "true";'
+      - 'APT::Periodic::Update-Package-Lists "1";'
+      - 'APT::Periodic::Unattended-Upgrade "1";'
+     
