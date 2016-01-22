@@ -1,10 +1,10 @@
 ---
 
   - name: Install dnf-automatic
-    yum:
+    dnf:
       name: dnf-automatic
       state: installed
-      update_cache: yes
+      #update_cache: yes
 
   - name: Enable dnf-automatic
     service:
