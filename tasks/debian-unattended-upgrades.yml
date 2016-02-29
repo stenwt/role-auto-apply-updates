@@ -1,17 +1,16 @@
 ---
 
   - name: "Install unattended-upgrades"
-    apt: 
+    apt:
       name: unattended-upgrades
       state: installed
 
   - name: Configure auto-upgrade
-    lineinfile: 
+    lineinfile:
       dest: /etc/apt/apt.conf.d/20auto-upgrades
       line: "{{ item }}"
       create: yes
-    with_items: 
+    with_items:
       - 'Unattended-Upgrade::MinimalSteps "true";'
       - 'APT::Periodic::Update-Package-Lists "1";'
       - 'APT::Periodic::Unattended-Upgrade "1";'
-     

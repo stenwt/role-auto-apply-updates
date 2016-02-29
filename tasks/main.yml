@@ -1,11 +1,11 @@
 --- 
-  - include: yum-cron.yml 
-    when: ( ansible_distribution == 'CentOS' 
-          or ansible_distribution == 'RedHat' 
+  - include: yum-cron.yml
+    when: ( ansible_distribution == 'CentOS'
+          or ansible_distribution == 'RedHat'
           and  "ansible_distribution_version" >= '7' )  or
-          ( ansible_distribution == 'Fedora' 
+          ( ansible_distribution == 'Fedora'
           and ansible_distribution_major_version < "22" )
-    
+
   - include: dnf-automatic.yml
     when: ansible_distribution == 'Fedora' and ansible_distribution_major_version >= "22"
 
